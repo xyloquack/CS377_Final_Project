@@ -8,8 +8,11 @@ Group Members:
 Physical Phone Availability:
 **Yes**
 
-Chosen Rest API:
+Chosen Rest API Description:
+
 **Unsplash**
+
+Unsplash API is a modern RESTful API that gives developers access to Unsplash's vast collection of high-quality, royalty-free photos. The aspect of being free to use, offering a high quality product, having comprehensive endpoints, and it being well-documented. This will allow us to build a project of high quality as we continue on. 
 
 Basic UI Screenshots:
 
