@@ -46,5 +46,5 @@
     <string name="submission_hint">Prompt</string>
     <string name="submit_label">Search</string>
     <string name="app_description">Enter a prompt to search for relevant information in the database</string>
-    <string name="search_results">Search results will appear here...</string>
+    <string name="search_results">Search results:</string>
 </resources>

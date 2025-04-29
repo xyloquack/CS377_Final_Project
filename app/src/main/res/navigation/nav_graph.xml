@@ -24,5 +24,20 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_ImageDetailFragment"
+            app:destination="@id/ImageDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ImageDetailFragment"
+        android:name="com.jsb536.cs377_final_project.ImageDetailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_image_detail">
+        <argument
+            android:name="imageData"
+            app:argType="com.jsb536.cs377_final_project.ImageData" />
+        <action
+            android:id="@+id/action_ImageDetailFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
 </navigation>

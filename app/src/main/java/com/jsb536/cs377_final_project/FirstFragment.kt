@@ -33,7 +33,14 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.submitButton.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            val query = binding.submissionEditText.text.toString().trim()
+            if (query.isNotEmpty()) {
+                val bundle = Bundle().apply { putString("searchQuery", query) }
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
+                // TODO: Replace with Safe Args navigation above
+            } else {
+                binding.submissionEditText.error = "Please enter a search term"
+            }
         }
     }
 
