@@ -6,3 +6,4 @@ This app works by requesting images from an online image API called Unsplash. Wh
 
 # Running the App
 Ensure that you have an Android device or emulator that is running with the AndroidSDK in version 24 or above, which corresponds to Android 7.0.
+To successfully make API calls, you will need to populate your local.properties file with an API key by adding a line like this: "UNSPLASH_ACCESS_KEY=(your api key)"
