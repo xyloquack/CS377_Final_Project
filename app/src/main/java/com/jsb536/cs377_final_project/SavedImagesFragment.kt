@@ -10,32 +10,23 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.jsb536.cs377_final_project.databinding.FragmentSecondBinding
+import com.jsb536.cs377_final_project.databinding.FragmentSavedImagesBinding
 import com.jsb536.cs377_final_project.ui.ImageViewModel
 
-class SecondFragment : Fragment(), OnImageClickListener {
+class SavedImagesFragment : Fragment(), OnImageClickListener {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: FragmentSavedImagesBinding? = null
     private val binding get() = _binding!!
 
     private val imageViewModel: ImageViewModel by viewModels()
 
     private lateinit var imageGridAdapter: ImageGridAdapter
-    private var currentQuery: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            currentQuery = it.getString("searchQuery")
-        }
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentSavedImagesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -44,15 +35,6 @@ class SecondFragment : Fragment(), OnImageClickListener {
 
         setupRecyclerView()
         observeViewModel()
-
-        currentQuery?.let {
-            if (it.isNotEmpty()) {
-                binding.textViewSecond.text = "Results for: $it"
-                imageViewModel.searchImages(it)
-            }
-        } ?: run {
-            binding.textViewSecond.text = "No search query provided."
-        }
     }
 
     private fun setupRecyclerView() {
@@ -66,26 +48,26 @@ class SecondFragment : Fragment(), OnImageClickListener {
     }
 
     private fun observeViewModel() {
-        imageViewModel.searchResults.observe(viewLifecycleOwner, Observer { images ->
-            Log.d("SecondFragment", "Received ${images.size} images")
+        imageViewModel.savedResults.observe(viewLifecycleOwner, Observer { images ->
+            Log.d("SavedImagesFragment", "Received ${images.size} images")
             imageGridAdapter.updateData(images)
         })
 
         imageViewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
-            Log.d("SecondFragment", "Loading state: $isLoading")
+            Log.d("SavedImagesFragment", "Loading state: $isLoading")
         })
 
         imageViewModel.error.observe(viewLifecycleOwner, Observer { errorMsg ->
             errorMsg?.let {
-                Log.e("SecondFragment", "Error: $it")
+                Log.e("SavedImagesFragment", "Error: $it")
             }
         })
     }
 
     override fun onImageClick(imageData: ImageData) {
-        Log.d("SecondFragment", "Image clicked: ${imageData.description}")
+        Log.d("SavedImagesFragment", "Image clicked: ${imageData.description}")
 
-        val action = SecondFragmentDirections.actionSecondFragmentToImageDetailFragment(imageData = imageData)
+        val action = SavedImagesFragmentDirections.actionSavedImagesFragmentToImageDetailFragment(imageData = imageData)
         findNavController().navigate(action)
     }
 

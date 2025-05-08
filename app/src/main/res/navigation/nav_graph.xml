@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_SavedImagesFragment"
+            app:destination="@id/SavedImagesFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -39,5 +42,18 @@
         <action
             android:id="@+id/action_ImageDetailFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SavedImagesFragment"
+        android:name="com.jsb536.cs377_final_project.SavedImagesFragment"
+        android:label="@string/saved_images_fragment_label"
+        tools:layout="@layout/fragment_saved_images">
+
+        <action
+            android:id="@+id/action_SavedImagesFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SavedImagesFragment_to_ImageDetailFragment"
+            app:destination="@id/ImageDetailFragment" />
     </fragment>
 </navigation>

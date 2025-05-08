@@ -47,4 +47,6 @@
     <string name="submit_label">Search</string>
     <string name="app_description">Enter a prompt to search for relevant information in the database</string>
     <string name="search_results">Search results:</string>
+    <string name="image_description">Image description</string>
+    <string name="saved_images_fragment_label">Saved Images</string>
 </resources>
